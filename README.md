@@ -1,6 +1,7 @@
 # Code accompanying "Multirate Training of Neural Networks", ICML 2022
 
 We present the torch.optimizer corresponding to the following multirate algorithm (this is Algorithm 1 in the ICML paper). <br>
+![Algorithm.png](https://github.com/TiffanyVlaar/MultirateTrainingofNNs/Algorithm.png)
 
 The base algorithm used is SGD with momentum.
 
