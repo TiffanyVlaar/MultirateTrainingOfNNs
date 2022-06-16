@@ -1,18 +1,15 @@
 # Code accompanying "Multirate Training of Neural Networks", ICML 2022
 
-We present the torch.optimizer corresponding to the following multirate algorithm (this is Algorithm 1 in the ICML paper). <br>
-![Algorithm.png](https://github.com/TiffanyVlaar/MultirateTrainingOfNNs/blob/main/Algorithm.png)
+We provide a torch.optimizer corresponding to the following multirate algorithm (with base algorithm SGD with momentum): <br>
+<img src="Algorithm.png" alt="drawing" width="300"/>
 
-The base algorithm used is SGD with momentum.
-
-To generate the transfer learning results in Section 4 one simply loads in the optimizer using:
+To generate the transfer learning results in Section 4 of our paper one simply loads in the optimizer using:
 
     from Optimizer_multirate import Multirate
     optimizer = Multirate(net.parameters(),lr=h,momentum=mu)  # where net is the considered neural network, and h and mu are as defined in Algorithm 1
 
 Then one initializes the momenta in epoch 0 for the first batch using: optimizer.initmom() (after calling loss.backward). <br>
-We set the fast parameters to be the fully connected (fc) layer. <br>
-Inside the training loop:
+If one sets the fast parameters to be the final fully connected (fc) layer, then the training loop becomes: <br>
     
     for batch_idx, (inputs, targets) in enumerate(loader_train): 
         if (batch_idx+1) % k == 0: #where k is as defined in Algorithm 1
