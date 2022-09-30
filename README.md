@@ -1,4 +1,4 @@
-# Code accompanying "Multirate Training of Neural Networks", ICML 2022
+# Code accompanying "Multirate Training of Neural Networks" [arXiv:2106.10771](https://arxiv.org/abs/2106.10771), ICML 2022
 
 We provide a torch.optimizer corresponding to the following multirate algorithm (with base algorithm SGD with momentum): <br>
 <img src="Figures/Algorithm.png" alt="drawing" width="300"/>
